@@ -1,0 +1,40 @@
+<md-content layout-padding>
+	<h2 class="text-center">Login</h2>
+	<form name="loginForm">
+		<span>Please enter your login information</span>
+		<div layout="column">
+			<md-input-container flex="50">
+				<label>Login</label>
+				<input required type="text" name="name" ng-model="login.user.name">
+				<div ng-messages="loginForm.name.$error">
+					<div ng-message="required">This is required.</div>
+				</div>
+			</md-input-container>
+
+			<md-input-container flex="50">
+				<label>Password</label>
+				<input required type="password" name="password" ng-model="login.user.password"
+				minlength="4" maxlength="20" multiple="" />
+
+				<div ng-messages="loginForm.password.$error" role="alert" multiple="">
+					<div ng-message="required">
+						Your password s required.
+					</div>
+					<div ng-message="minlength">
+						Your password must be between 4 and 20 characters long and look like an password.
+					</div>
+					<div ng-message="maxlength">
+						Your password must be between 4 and 20 characters long and look like an password.
+					</div>
+				</div>
+			</md-input-container>
+		</div>
+
+		<div ng-if="login.message" class="alert-help">{{login.message}}</div>
+
+		<div>
+			<md-button type="submit" class="md-raised md-primary" ng-click="login.send()"
+			ng-disabled="!login.user.name || !login.user.password">Submit</md-button>
+		</div>
+	</form>
+</md-content>

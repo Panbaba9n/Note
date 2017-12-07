@@ -1,0 +1,41 @@
+<md-content layout-padding>
+	<h2 class="text-center">Registration</h2>
+	<form name="registrationForm">
+		<span>Please enter your registration information</span>
+		<div layout="column">
+			<md-input-container flex="50">
+				<label>Name</label>
+				<input required type="text" name="name" ng-model="registration.user.name">
+				<div ng-messages="registrationForm.name.$error">
+					<div ng-message="required">This is required.</div>
+				</div>
+			</md-input-container>
+
+			<md-input-container flex="50">
+				<label>Password</label>
+				<input required type="password" name="password" ng-model="registration.user.password"
+				minlength="4" maxlength="20" multiple="" />
+
+				<div ng-messages="registrationForm.password.$error" role="alert" multiple="">
+					<div ng-message="required">
+						Your password s required.
+					</div>
+					<div ng-message="minlength">
+						Your password must be between 4 and 20 characters long and look like an password.
+					</div>
+					<div ng-message="maxlength">
+						Your password must be between 4 and 20 characters long and look like an password.
+					</div>
+				</div>
+			</md-input-container>
+		</div>
+
+		<div ng-if="registration.message" class="alert-help">{{registration.message}}</div>
+
+		<div>
+			<md-button type="submit" class="md-raised md-primary" ng-click="registration.send()"
+			ng-disabled="!registration.user.name || !registration.user.password">Submit</md-button>
+		</div>
+
+	</form>
+</md-content>

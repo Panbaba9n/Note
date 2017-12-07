@@ -1,0 +1,4 @@
+# folder node_modules
+server/node_modules/
+server/public/lib/
+server/public/_build/
