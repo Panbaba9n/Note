@@ -13,7 +13,7 @@
         return $resource('', {}, {
             login: {
                 method: 'POST',
-                url: 'http://localhost:8000/login'
+                url: 'http://localhost:3000/api/login'
             }
         });
 

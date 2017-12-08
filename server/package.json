@@ -7,13 +7,6 @@
     "devstart": "nodemon ./bin/www"
   },
   "dependencies": {
-    "body-parser": "~1.18.2",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.15.5",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.0",
-    "serve-favicon": "~2.4.5",
     "angular": "^1.6.7",
     "angular-animate": "^1.6.7",
     "angular-aria": "^1.6.7",
@@ -23,7 +16,16 @@
     "angular-resource": "^1.6.7",
     "angular-sanitize": "^1.6.7",
     "angular-ui-router": "^0.4.3",
-    "moment": "^2.19.3"
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "jade": "~1.11.0",
+    "jsonwebtoken": "^8.1.0",
+    "moment": "^2.19.3",
+    "mongoose": "^4.13.6",
+    "morgan": "~1.9.0",
+    "serve-favicon": "~2.4.5"
   },
   "devDependencies": {
     "nodemon": "^1.12.5",
@@ -39,9 +41,11 @@
     "gulp-filter": "^5.0.1",
     "gulp-html-replace": "^1.6.2",
     "gulp-imagemin": "^4.0.0",
+    "gulp-livereload": "^3.8.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-minify-html": "^1.0.6",
+    "gulp-nodemon": "^2.0.3",
     "gulp-notify": "^3.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-rev": "^8.1.0",

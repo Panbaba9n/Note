@@ -5,5 +5,28 @@ Main styles file
 ******************************************************************/
 
 h1 {
-	color: green;
+	color: lightgreen;
+}
+
+.nav {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	a {
+		margin-right: 5%;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+.logout-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-content: center;
+	&>span {
+		text-align: end;
+	}
 }

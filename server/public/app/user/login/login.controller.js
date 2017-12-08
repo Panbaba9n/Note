@@ -4,17 +4,18 @@
     .module('login')
     .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$scope', 'Login', 'User'];
+    LoginController.$inject = ['$rootScope', '$scope', '$state', 'Login', 'User'];
 
 
-    function LoginController($scope, Login, User) {
+    function LoginController($rootScope, $scope, $state, Login, User) {
 
         // 'controller as' syntax
         var vm = this;
 
-        vm.user = {};
         vm.message = false;
         vm.send = send;
+        vm.user = {};
+
 
         /* /////////////////////// */
 
@@ -24,20 +25,27 @@
                 "password": vm.user.password
             }, function(response){
                 vm.message = response.message;
-                User.setName( vm.user.name );
-                User.setToken(response.token);
-                User.setAuth(response.isAuth);
-                // sendToParentCtrl();
-                // $state.go('users');
+                saveUserInfo(response);
+                $rootScope.$emit('loging', {/*isAuth: true, name: vm.user.name*/});
+                $state.go('infotable');
             }, function(err) {
+                User.setAuth(err.data.isAuth);
+                User.setName();
+                $rootScope.$emit('loging', {/*isAuth: true, name: vm.user.name*/});
                 if(err.status !== -1) {
                     vm.message = err.data.message;
-                    User.setAuth(err.data.isAuth);
                 } else if (err.status == -1) {
                     vm.message = "Not connected, probably server doesn't work.";
                 }
             });
         };
+
+        function saveUserInfo(response) {
+            User.setName( vm.user.name );
+            User.setToken( response.token );
+            User.setAuth( response.isAuth );
+        };
+
     };
 
 })();

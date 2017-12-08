@@ -12,17 +12,10 @@
         // 'controller as' syntax
         var vm = this;
 
-        vm.logout = logout;
-
-
-        // vm.logout();
 
         /* /////////////////////// */
 
-        function logout() {
-        	return User.logout();
-        }
-
+        
     };
 
 })();

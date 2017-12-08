@@ -5,7 +5,7 @@
      */
     angular
         .module('todo', [
-            'ui.router',
+          'ui.router',
       		'ngResource',
       		'ngMaterial',
       		'ngMessages',
@@ -15,7 +15,8 @@
 
           'user',
       		'registration',
-      		'login'
+      		'login',
+          'logout'
         ]);
 
 

@@ -14,6 +14,8 @@
  * 
  */
 var gulp            = require('gulp'),
+    _               = require('lodash'),
+    nodemon         = require('gulp-nodemon'),
     browserSync     = require('browser-sync'),
     reload          = browserSync.reload,
     $               = require('gulp-load-plugins')(),
@@ -51,7 +53,7 @@ gulp.task('minify-js', function() {
 
 // minify CSS
 gulp.task('minify-css', function() {
-  gulp.src(['./public/styles/**/*.css', '!./styles/**/*.min.css'])
+  gulp.src(['./public/styles/**/*.css', '!./public/styles/**/*.min.css'])
     .pipe($.rename({suffix: '.min'}))
     .pipe($.minifyCss({keepBreaks:true}))
     .pipe(gulp.dest('./public/styles/'))
@@ -225,12 +227,21 @@ gulp.task('build:size', function() {
     }));
 });
 
+// Nodemon task
+gulp.task('nodemon', function () {
+  return nodemon({
+    script: './bin/www',
+    ext: 'js,html',
+    watch: _.union(['public/**/*.html'], ['public/**/*.html', 'app.js', 'config/**/*.js', 'controllers/**/*.js', 'models/**/*.js', 'routes/**/*.js', 'public/**/*.js'], ['public/**/*.css'])
+  });
+});
+
 
 // default task to be run with `gulp` command
 // this default task will run BrowserSync & then use Gulp to watch files.
 // when a file is changed, an event is emitted to BrowserSync with the filepath.
 // gulp.task('default', ['browser-sync', 'sass', 'minify-css'], function() {
-gulp.task('default', ['sass', 'minify-css'], function() {
+gulp.task('default', ['sass', 'minify-css', 'nodemon'], function() {
   gulp.watch('./public/styles/*.css', function(file) {
     if (file.type === "changed") {
       reload(file.path);

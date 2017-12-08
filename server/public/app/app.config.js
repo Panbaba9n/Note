@@ -26,7 +26,8 @@
 			isAuthentificaded: true
 		});
 
-		localStorageServiceProvider.setStorageType('sessionStorage');
+		/* if need only session lifetime */
+		// localStorageServiceProvider.setStorageType('sessionStorage');
 
 	};
     

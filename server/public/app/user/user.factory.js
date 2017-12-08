@@ -9,9 +9,9 @@
     ////////////
 
     function User(localStorageService, $state) {
-        var _name,
-            _token,
-            _isAuth;
+        var _name = null,
+            _token = null,
+            _isAuth = null;
 
         return {
             setName: setName,
@@ -25,7 +25,7 @@
 
         /* /////////////////////// */
 
-        /*function setName(name) {
+        function setName(name) {
             localStorageService.set('name', name);
         };
 
@@ -42,7 +42,7 @@
         };
 
         function setAuth(isAuth) {
-            localStorageService.set('isAuth', isAuth);
+            localStorageService.set('isAuth', isAuth || null);
         };
 
         function getAuth(token) {
@@ -54,38 +54,38 @@
           localStorageService.remove('name');
           localStorageService.remove('isAuth');
           $state.go('login');
-        };*/
-
-        function setName(name) {
-            _name = name;
         };
 
-        function getName() {
-            return _name;
-        };
+        // function setName(name) {
+        //     _name = name;
+        // };
 
-        function setToken(token) {
-            _token = token;
-        };
+        // function getName() {
+        //     return _name;
+        // };
 
-        function getToken(token) {
-            return _token;
-        };
+        // function setToken(token) {
+        //     _token = token;
+        // };
 
-        function setAuth(isAuth) {
-            _isAuth = isAuth;
-        };
+        // function getToken(token) {
+        //     return _token;
+        // };
 
-        function getAuth(token) {
-            return _isAuth;
-        };
+        // function setAuth(isAuth) {
+        //     _isAuth = isAuth || null;
+        // };
 
-        function logout() {
-          _name = null;
-          _token = null;
-          _isAuth = null;
-          $state.go('login');
-        };
+        // function getAuth(token) {
+        //     return _isAuth;
+        // };
+
+        // function logout() {
+        //   _name = null;
+        //   _token = null;
+        //   _isAuth = null;
+        //   $state.go('login');
+        // };
         
     };
 

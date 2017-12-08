@@ -16,6 +16,10 @@
         // 'controller as' syntax
         var vm = this;
 
+        vm.authenticated = function () {
+            return User.getAuth();
+        };
+
 
         /* /////////////////////// */
 

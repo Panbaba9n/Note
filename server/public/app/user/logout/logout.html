@@ -1,0 +1,13 @@
+<md-content layout-padding>
+	<div class="logout-wrap" ng-controller="LogoutController as logout">
+		<span>
+			<span ng-show="logout.checkAuth">Hello, <strong ng-bind="logout.name"></strong></span>
+
+			<md-button ui-sref="login" ng-show="!logout.checkAuth" class="md-raised md-primary">login</md-button>
+
+			<md-button ng-click="logout.logout()" ng-show="logout.checkAuth" class="md-raised md-warn">logout</md-button>
+
+			<md-button ui-sref="registration" ng-show="!logout.checkAuth" class="md-raised">registration</md-button>
+		</span>
+	</div>
+</md-content>

@@ -13,7 +13,7 @@
         return $resource('', {}, {
             registration: {
                 method: 'POST',
-                url: 'http://localhost:8000/registration'
+                url: 'http://localhost:3000/api/registration'
             }
         });
 
