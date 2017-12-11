@@ -3124,3 +3124,4 @@ h1{color:#90ee90}
 .nav a{margin-right:5%}
 .nav a:last-child{margin-right:0}
 .logout-wrap{flex-wrap:wrap;justify-content:flex-end}
+.logout-wrap>span{text-align:end}

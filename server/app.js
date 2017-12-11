@@ -5,10 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+// var index = require('./routes/index');
+var notebooks = require('./routes/notebooks');
 var registration = require('./routes/registration');
 var login = require('./routes/login');
+var users = require('./routes/users');
 
 var app = express();
 
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Define API
+app.use('/api/notebooks', notebooks);
 app.use('/api/registration', registration);
 app.use('/api/login', login);
 app.use('/api/*', users);

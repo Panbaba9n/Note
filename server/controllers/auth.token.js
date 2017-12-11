@@ -61,7 +61,7 @@ function makeToken(req, res, next) {
                 // if user is found and password is right
                 // create a token with only our given payload
                 // we don't want to pass in the entire user since that has the password
-                const payload = {
+                var payload = {
                     admin: user.admin,
                     id: user.id
                 };

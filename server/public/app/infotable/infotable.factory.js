@@ -4,21 +4,22 @@
     .module('infotable')
     .factory('DataInfotable', DataInfotable);
 
-    DataInfotable.$inject = ['$http'];
+    DataInfotable.$inject = ['$resource', 'User'];
 
     ////////////
 
-    function DataInfotable($http) {
+    function DataInfotable($resource, User) {
 
-        return {
-            variable: variable
-        }
+        return $resource('', {}, {
+            getNotebooks: {
+                method: 'POST',
+                url: 'http://localhost:3000/api/notebooks',
+                isArray: true
+            }
+        });
 
         ////////////  function definitions
 
-        function variable() {
-            return 'test';
-        }
         
     };
 

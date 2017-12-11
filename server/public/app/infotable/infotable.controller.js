@@ -12,10 +12,15 @@
         // 'controller as' syntax
         var vm = this;
 
+        vm.notes = getNotes();
+
+        console.log(vm.notes);
 
         /* /////////////////////// */
 
-        
+        function getNotes() {
+        	return DataInfotable.getNotebooks({}, {"token": User.getToken()});
+        }
     };
 
 })();
