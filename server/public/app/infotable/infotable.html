@@ -1,8 +1,53 @@
-<h2>This is infotable page, if You can see it, You are loggined!</h2>
+
 <div class="lol">
-	<ul>
-		<li ng-repeat="note in infotable.notes">
-			<span ng-bind="note.title"></span>
-		</li>
-	</ul>
+	<md-toolbar layout="row" class="">
+		<div class="md-toolbar-tools">
+			<h2>This is infotable page, if You can see it, You are loggined!</h2>
+		</div>
+	</md-toolbar>
+
+	<md-content layout-padding>
+			<form name="addNotebook">
+				<md-input-container class="md-input-has-placeholder">
+					<label>Set a notebook title</label>
+					<input name="title" type="text" placeholder="title" ng-model="infotable.notebook.title" class=" md-input" ng-keypress="infotable.addByEnter($event)" required>
+					<div ng-messages="addNotebook.title.$error">
+						<div ng-message="required">Title is required.</div>
+					</div>
+					<div ng-messages="infotable.message">
+						<div>{{infotable.message}}</div>
+					</div>
+					<md-button ng-disabled="!infotable.notebook.title" ng-click="infotable.addNotebook()" class="md-raised">Add Notebook</md-button>
+				</md-input-container>
+			</form>
+	</md-content>
+
+	<md-content>
+		<md-list flex>
+			<md-subheader class="md-no-sticky">Your noteboks</md-subheader>
+			<md-list-item class="md-2-line" ng-repeat="note in infotable.notes" ui-sref="notebook({ title: note.title, id: note._id })" aria-label="some btn">
+				<div class="notebook__body md-list-item-text" layout="column" layout-gt-xs="row" layout-align="start start" layout-align-gt-xs="space-between center">
+					<h3 ng-if="!note.eddite" ng-bind="note.title"></h3>
+					<form ng-if="note.eddite" name="edit">
+						<md-input-container md-no-float class="md-input-has-placeholder">
+							<!-- <label>Edit a notebook title</label> -->
+							<input name="title" type="text" placeholder="{{note.title}}" ng-model="note.title" class="md-input" required>
+							<div ng-messages="edit.title.$error">
+								<div ng-message="required">Title is required.</div>
+							</div>
+						</md-input-container>
+						<md-button type="reset" ng-if="note.eddite" ng-click="infotable.reset(note)" class="md-raised" aria-label="Cancel">Cancel</md-button>
+					</form>
+					<div class="notebook__btns_wrap">
+						<md-button  ng-if="!note.eddite" ng-click="infotable.update(note)" class="md-raised md-primary" aria-label="Edit">Edit</md-button>
+						<md-button  ng-if="note.eddite" ng-disabled="note.title == note.originaltitle || !note.title" ng-click="infotable.save(note)" class="md-raised md-primary" aria-label="Save">Save</md-button>
+						<md-button  ng-click="infotable.delete(note)" class="md-raised md-warn" aria-label="Delete">Delete</md-button>
+					</div>
+				</div>
+				<md-divider ></md-divider>
+			</md-list-item>
+
+		</md-list>
+	</md-content>
+
 </div>

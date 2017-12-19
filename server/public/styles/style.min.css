@@ -1527,6 +1527,7 @@ md-toolbar~md-content>md-list md-list-item:last-child md-divider{display:none}
 .layout-xs,.layout-xs-column,.layout-xs-row{box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex}
 .layout-xs-column{flex-direction:column}
 .layout-xs-row{flex-direction:row}
+.notebook__body .notebook__btns_wrap{align-self:flex-end}
 }
 @media (min-width:600px){.flex-order-gt-xs--20{order:-20}
 .flex-order-gt-xs--19{order:-19}
@@ -3115,13 +3116,18 @@ md-toolbar~md-content>md-list md-list-item:last-child md-divider{display:none}
 .layout-xl-row{flex-direction:row}
 .hide-gt-lg:not(.show-gt-xs):not(.show-gt-sm):not(.show-gt-md):not(.show-gt-lg):not(.show-xl):not(.show),.hide-gt-md:not(.show-gt-xs):not(.show-gt-sm):not(.show-gt-md):not(.show-gt-lg):not(.show-xl):not(.show),.hide-gt-sm:not(.show-gt-xs):not(.show-gt-sm):not(.show-gt-md):not(.show-gt-lg):not(.show-xl):not(.show),.hide-gt-xs:not(.show-gt-xs):not(.show-gt-sm):not(.show-gt-md):not(.show-gt-lg):not(.show-xl):not(.show),.hide-xl:not(.show-xl):not(.show-gt-lg):not(.show-gt-md):not(.show-gt-sm):not(.show-gt-xs):not(.show),.hide:not(.show-gt-xs):not(.show-gt-sm):not(.show-gt-md):not(.show-gt-lg):not(.show-xl):not(.show){display:none}
 }
+.logout-wrap,.nav{align-content:center}
 @media print{[md-whiteframe],md-whiteframe{background-color:#fff}
 .hide-print:not(.show-print):not(.show){display:none!important}
 }
-.logout-wrap,.nav{display:flex;align-content:center}
 h1{color:#90ee90}
-.nav{justify-content:center}
+.nav{display:flex;justify-content:center}
 .nav a{margin-right:5%}
 .nav a:last-child{margin-right:0}
-.logout-wrap{flex-wrap:wrap;justify-content:flex-end}
+.logout-wrap{display:flex;flex-wrap:wrap;justify-content:flex-end}
 .logout-wrap>span{text-align:end}
+.notebook__body h3{margin:0;padding:0;flex:1 2 auto;max-width:100%}
+.notebook__body form .md-input-has-placeholder{margin-bottom:0}
+.notebook__body .notebook__btns_wrap{min-width:213px}
+.add_note .add_note__textarea__wrap,.add_note .add_note__textarea__wrap .add_note__textarea{width:100%}
+.edit_note{display:flex;flex-flow:row wrap;flex:1 1 auto}

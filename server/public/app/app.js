@@ -12,6 +12,7 @@
       		'LocalStorageModule',
 
       		'infotable',
+          'notes',
 
           'user',
       		'registration',

@@ -15,6 +15,18 @@
                 method: 'POST',
                 url: 'http://localhost:3000/api/notebooks',
                 isArray: true
+            },
+            addNotebook: {
+                method: 'POST',
+                url: 'http://localhost:3000/api/notebooks/add'
+            },
+            delNotebook: {
+                method: 'POST',
+                url: 'http://localhost:3000/api/notebooks/del'
+            },
+            upgradeNotebook: {
+                method: 'POST',
+                url: 'http://localhost:3000/api/notebooks/update'
             }
         });
 

@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 // var index = require('./routes/index');
+var notes = require('./routes/notes');
 var notebooks = require('./routes/notebooks');
 var registration = require('./routes/registration');
 var login = require('./routes/login');
@@ -38,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Define API
+app.use('/api/notes', notes);
 app.use('/api/notebooks', notebooks);
 app.use('/api/registration', registration);
 app.use('/api/login', login);

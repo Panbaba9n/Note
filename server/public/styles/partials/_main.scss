@@ -30,3 +30,55 @@ h1 {
 		text-align: end;
 	}
 }
+
+.notebook__body {
+	h3 {
+		margin: 0;
+		padding: 0;
+		flex: 1 2 auto;
+		max-width: 100%;
+	}
+	form {
+		.md-input-has-placeholder {
+			margin-bottom: 0;
+		}
+	}
+	.notebook__btns_wrap {
+		min-width: 213px;
+		@media (max-width: 599px) {
+			align-self: flex-end;
+		}
+	}
+}
+
+.add_note {
+	.add_note__textarea__wrap {
+		width: 100%;
+		.add_note__textarea {
+			width: 100%;
+		}
+	}
+}
+
+.edit_note {
+	display: flex;
+	flex-flow: row wrap;
+	flex: 1 1 auto;
+}
+
+.share {
+	color : rgb(49, 46, 46);
+	background-color: rgba(255, 222, 121, 0.96);
+	border-radius: 10px 0 0 10px;
+	font-size: 16px;
+}
+
+.share:not([disabled]):hover {
+  background-color: rgba(107, 103, 91, 0.96);
+  color: white;
+}
+
+.share[disabled] {
+  color : rgb(187, 187, 187);
+  background-color: rgba(230, 230, 229, 0.96);
+}

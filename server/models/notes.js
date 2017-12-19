@@ -8,18 +8,11 @@ var User = require('./users.js');
  * rights - 0-read/ 1-write
  */
 
-// module.export = mongoose.model('Notes', new Schema({
-// 	title: String,
-// 	content: String,
-// 	date: Date,
-// 	autor: [User],
-// 	access: [User],
-// 	rights: Number
-// }));
-module.export = mongoose.model('Notes', new Schema({
+module.exports = mongoose.model('Notes', new Schema({
 	title: String,
 	content: String,
 	date: Date,
+	notebook: Schema.ObjectId,
 	autor: Schema.ObjectId,
 	access: [Schema.ObjectId],
 	rights: Number
