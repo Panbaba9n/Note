@@ -53,24 +53,46 @@
 					<md-button type="reset" ng-if="note.eddite" ng-click="notebook.reset(note)" class="md-raised" aria-label="Cancel">Cancel</md-button>
 				</form>
 				<div class="notebook__btns_wrap">
-					<div ng-if="!note.eddite">
+					<!-- <div ng-if="!note.eddite">
 
 						<md-menu>
 							<md-button class="share" ng-click="$mdMenu.open($event)" aria-label="Share">Share</md-button>
 							<md-menu-content>
 								<md-menu-item>
-									<md-autocomplete md-no-cache="true" md-selected-item="notebook.selectedItem" md-search-text-change="notebook.searchTextChange(notebook.searchText)" md-search-text="notebook.searchText" md-selected-item-change="notebook.selectedItemChange(item)" md-items="item in notebook.querySearch(notebook.searchText)" md-item-text="item.display" md-min-length="3" placeholder="Chose a user">
-										<md-item-template>
-											<span md-highlight-text="notebook.searchText" md-highlight-flags="^i">{{item.display}}</span>
-										</md-item-template>
-										<md-not-found>
-											No states matching "{{notebook.searchText}}" were found.
-											<a ng-click="notebook.newState(notebook.searchText)">Create a new one!</a>
-										</md-not-found>
+									<md-autocomplete
+									md-no-cache="true"
+									placeholder="What is your favorite place?"
+									md-item-text="item.test"
+									md-items="item in notebook.items"
+									md-menu-class="autocomplete-custom-template"
+									md-min-length="3"
+									md-delay="notebook.throttle"
+									md-search-text="notebook.searchText"
+									md-search-text-change="notebook.searchTextChange(notebook.searchText)"
+									md-select-on-match=true
+									md-match-case-insensitive=true
+									md-selected-item-change="notebook.selectedItemChange(item)"
+									md-selected-item="notebook.selectedItem">
+
+									<md-item-template>
+										<span class="item-title">
+											<span md-highlight-flags="^i" md-highlight-text="notebook.searchText">
+												{{item.display}}
+											</span>
+										</span>
+									</md-item-template>
+									<md-not-found>
+										No match found.
+									</md-not-found>
+
 									</md-autocomplete>
 								</md-menu-item>
 							</md-menu-content>
 						</md-menu>
+					</div> -->
+
+					<div ng-if="!note.eddite">
+					<md-button class="share" ng-click="notebook.openDialog($event, note)" aria-label="Share">Share</md-button>
 					</div>
 
 					<md-button  ng-if="!note.eddite" ng-click="notebook.update(note)" class="md-raised md-primary" aria-label="Edit">Edit</md-button>

@@ -27,6 +27,10 @@
             upgradeNote: {
                 method: 'POST',
                 url: 'http://localhost:3000/api/notes/update'
+            },
+            getUsers: {
+                method: 'POST',
+                url: 'http://localhost:3000/api/users'
             }
         });
 
