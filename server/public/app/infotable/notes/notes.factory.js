@@ -10,7 +10,7 @@
 
     function Note($resource, User) {
 
-        return $resource('', {}, {
+        return $resource('', {"token": User.getToken()}, {
             getNotes: {
                 method: 'POST',
                 url: 'http://localhost:3000/api/notes',
@@ -30,7 +30,8 @@
             },
             getUsers: {
                 method: 'POST',
-                url: 'http://localhost:3000/api/users'
+                url: 'http://localhost:3000/api/users',
+                isArray: true
             }
         });
 

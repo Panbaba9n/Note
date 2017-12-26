@@ -33,8 +33,8 @@
         <md-autocomplete
         md-no-cache="true"
         placeholder="What is your favorite place?"
-        md-item-text="item.test"
-        md-items="item in share.items"
+        md-item-text="user.test"
+        md-items="user in share.users"
         md-menu-class="autocomplete-custom-template"
         md-min-length="2"
         md-delay="share.throttle"
@@ -42,13 +42,13 @@
         md-search-text-change="share.searchTextChange(share.searchText)"
         md-select-on-match=true
         md-match-case-insensitive=true
-        md-selected-item-change="share.selectedItemChange(item)"
+        md-selected-item-change="share.selectedItemChange(user)"
         md-selected-item="share.selectedItem">
 
         <md-item-template>
           <span class="item-title">
             <span md-highlight-flags="^i" md-highlight-text="share.searchText">
-              {{item.test}}
+              {{user.test}}
             </span>
           </span>
         </md-item-template>

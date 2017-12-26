@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var authStrategy = require('../controllers/auth.token');
+
+router.use(authStrategy.checkToken);
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
