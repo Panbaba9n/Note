@@ -12,43 +12,26 @@
 
   <md-dialog-content ng-cloak>
     <div class="md-dialog-content">
-      <!-- <form ng-submit="$event.preventDefault()"> -->
-        <p>Use <code>md-autocomplete</code> to search for matches from local or remote data sources.</p>
-        <!-- <md-autocomplete
-            md-selected-item="ctrl.selectedItem"
-            md-search-text="ctrl.searchText"
-            md-items="item in ctrl.querySearch(ctrl.searchText)"
-            md-item-text="item.display"
-            md-min-length="0"
-            placeholder="What is your favorite US state?"
-            md-autofocus>
-          <md-item-template>
-            <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
-          </md-item-template>
-          <md-not-found>
-            No states matching "{{ctrl.searchText}}" were found.
-          </md-not-found>
-        </md-autocomplete> -->
-
-        <md-autocomplete
-        md-no-cache="true"
-        placeholder="What is your favorite place?"
-        md-item-text="user.test"
-        md-items="user in share.users"
-        md-menu-class="autocomplete-custom-template"
-        md-min-length="2"
-        md-delay="share.throttle"
-        md-search-text="share.searchText"
-        md-search-text-change="share.searchTextChange(share.searchText)"
-        md-select-on-match=true
-        md-match-case-insensitive=true
-        md-selected-item-change="share.selectedItemChange(user)"
-        md-selected-item="share.selectedItem">
+      <p>Choose a user to share</p>
+      <md-autocomplete
+              md-no-cache="true"
+              placeholder="Who would you like to share?"
+              md-item-text="user.name"
+              md-items="user in share.users"
+              md-menu-class="autocomplete-custom-template"
+              md-min-length="2"
+              md-delay="share.throttle"
+              md-search-text="share.searchText"
+              md-search-text-change="share.searchTextChange(share.searchText)"
+              md-select-on-match=true
+              md-match-case-insensitive=true
+              md-selected-item-change="share.selectedItemChange(user)"
+              md-selected-item="share.selectedItem">
 
         <md-item-template>
           <span class="item-title">
             <span md-highlight-flags="^i" md-highlight-text="share.searchText">
-              {{user.test}}
+              {{user.name}}
             </span>
           </span>
         </md-item-template>
@@ -57,12 +40,10 @@
         </md-not-found>
 
       </md-autocomplete>
-      <!-- </form> -->
     </div>
   </md-dialog-content>
 
   <md-dialog-actions>
-    <md-button aria-label="Finished" ng-click="share.finish($event)">Finished</md-button>
-    <md-button aria-label="Finished" ng-click="share.lol()">Finished</md-button>
+    <md-button aria-label="Share" ng-click="share.send()">Share</md-button>
   </md-dialog-actions>
 </md-dialog>

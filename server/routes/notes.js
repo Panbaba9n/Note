@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/users');
 var authStrategy = require('../controllers/auth.token');
 var NoteBooks = require('../models/notebooks');
 var Notes = require('../models/notes');

@@ -5,19 +5,19 @@
      */
     angular
         .module('todo', [
-          'ui.router',
-      		'ngResource',
-      		'ngMaterial',
-      		'ngMessages',
-      		'LocalStorageModule',
+            'ui.router',
+            'ngResource',
+            'ngMaterial',
+            'ngMessages',
+            'LocalStorageModule',
 
-      		'infotable',
-          'notes',
+            'infotable',
+            'notes',
 
-          'user',
-      		'registration',
-      		'login',
-          'logout'
+            'user',
+            'registration',
+            'login',
+            'logout'
         ]);
 
 
